@@ -1,0 +1,11 @@
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\bin\Debug\LifeSimulation.exe.config
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\bin\Debug\LifeSimulation.exe
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\bin\Debug\LifeSimulation.pdb
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.csprojAssemblyReference.cache
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\BadLife.Game.resources
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\GameEngine.GameView.resources
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.Properties.Resources.resources
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.csproj.GenerateResource.cache
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.csproj.CoreCompileInputs.cache
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.exe
+C:\Users\Дарья\Documents\LifeSimulation\LifeSimulation\obj\Debug\LifeSimulation.pdb
