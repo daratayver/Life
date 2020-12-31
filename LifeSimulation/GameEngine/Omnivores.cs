@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GameEngine
 {
-	public class Herbivorous : Animal<Plant>, IPH
+	public class Omnivores : Animal<IPH>
 	{
-		public Herbivorous(Color color, int width, int height) : base(color, width, height)
+		public Omnivores(Color color, int width, int height) : base(color, width, height)
 		{
 		}
 

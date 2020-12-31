@@ -15,7 +15,7 @@ namespace GameEngine
 			
 		}
 
-		public void BuildHouse(ref ICollection<MapObject> mapObjects)
+		public void BuildHouse(ICollection<MapObject> mapObjects)
 		{
 			Home = new House(Color.Brown, 64,64);
 			Home.SetLocation(X, Y);

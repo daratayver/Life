@@ -21,9 +21,24 @@ namespace BadLife
 
 		Bitmap BunnyBitmap;
 		//ICollection<Herbivorous> Bunnies;
+		Bitmap ReindearBitmap;
+		//ICollection<Herbivorous> Reindears;
+		Bitmap SheepBitmap;
+		//ICollection<Herbivorous> Sheeps;
 
 		Bitmap FoxBitmap;
 		//ICollection<Predator> Foxes;
+		Bitmap WolfBitmap;
+		//ICollection<Predator> Wolfs;
+		Bitmap BearBitmap;
+		//ICollection<Predator> Bears;
+
+		Bitmap OmBitmap;
+		//ICollection<Omnivores> Oms;
+		Bitmap OmnBitmap;
+		//ICollection<Omnivores> Omns;
+		Bitmap OmniBitmap;
+		//ICollection<Omnivores> Omnis;
 
 		Bitmap WomanBitmap;
 		Bitmap ManBitmap;
@@ -172,9 +187,18 @@ namespace BadLife
 			}
 
 			BunnyBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
-			for (int i = 0; i < 30; i++)
+			ReindearBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
+			SheepBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
+			for (int i = 0; i < 50; i++)
 			{
-				Herbivorous b = new Herbivorous(Color.White, 32, 32);
+				Herbivorous b;
+				int ran = random.Next(3);
+				if (ran == 0)
+					b = new Herbivorous(Color.LightGray, 32, 32);
+				else if (ran == 1) 
+					b = new Herbivorous(Color.SandyBrown, 32, 32);
+				else 
+					b = new Herbivorous(Color.White, 32, 32);
 
 				int x = random.Next(16, 2048) + 16;
 				int y = random.Next(16, 2048) + 16;
@@ -185,10 +209,21 @@ namespace BadLife
 				Creatures.Add(b);
 			}
 
-			FoxBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
-			for (int i = 0; i < 20; i++)
+		
+
+			FoxBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			WolfBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			BearBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			for (int i = 0; i < 35; i++)
 			{
-				Predator f = new Predator(Color.Orange, 32, 32);
+				Predator f;
+				int ran = random.Next(3);
+				if (ran == 0)
+					f = new Predator(Color.Orange, 48, 48);
+				else if (ran == 1) 
+					f = new Predator(Color.DarkGray, 48, 48);
+				else 
+					f = new Predator(Color.SaddleBrown, 48, 48);
 
 				int x = random.Next(16, 2048) + 16;
 				int y = random.Next(16, 2048) + 16;
@@ -197,6 +232,30 @@ namespace BadLife
 				Creatures.Add(f);
 			}
 
+			
+		
+			OmBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			OmnBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			OmniBitmap = new Bitmap(48, 48, PixelFormat.Format24bppRgb);
+			for (int i = 0; i < 20; i++)
+			{
+				Omnivores f;
+				int ran = random.Next(3);
+				if (ran == 0)
+					f = new Omnivores(Color.DarkRed, 48, 48);
+				else if (ran == 1)
+					f = new Omnivores(Color.Red, 48, 48);
+				else
+					f = new Omnivores(Color.IndianRed, 48, 48);
+
+				int x = random.Next(16, 2048) + 16;
+				int y = random.Next(16, 2048) + 16;
+				f.SetLocation(x, y);
+
+				Creatures.Add(f);
+			}
+
+
 			ManBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
 			WomanBitmap = new Bitmap(32, 32, PixelFormat.Format24bppRgb);
 			for (int i = 0; i < 15; i++)
@@ -204,7 +263,7 @@ namespace BadLife
 				Human h;
 				if (random.Next(2) == 0)
 					h = new Man(Color.Blue, 32, 32);
-				else h = new Woman(Color.Pink, 32, 32);
+				else h = new Woman(Color.HotPink, 32, 32);
 
 				int x = random.Next(16, 2048) + 16;
 				int y = random.Next(16, 2048) + 16;

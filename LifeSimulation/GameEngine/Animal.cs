@@ -45,15 +45,15 @@ namespace GameEngine
 			for (int i = 0; i < 1000; i++);
 		}
 
-		public override void Update(ref ICollection<Creature> creatures, ref ICollection<MapObject> mapObjects)
+		public override void Update(ICollection<Creature> creatures, ICollection<MapObject> mapObjects)
 		{
 			Satiety -= 0.0005;
 			if (Satiety <= 0.9)
 			{
 				if (Satiety <= 0) Visible = false;
 				{
-					SearchFood(ref creatures);
-					if (Goal != null) MoveToFood(ref creatures);
+					SearchFood(creatures);
+					if (Goal != null) MoveToFood(creatures);
 					else MoveRandom();
 				}
 			
@@ -185,7 +185,7 @@ namespace GameEngine
 			dy = Speed;
 		}
 
-		public virtual void SearchFood(ref ICollection<Creature> creatures)
+		public virtual void SearchFood(ICollection<Creature> creatures)
 		{
 			long min;
 			if (Goal != null && creatures.Contains(Goal))
@@ -199,7 +199,7 @@ namespace GameEngine
 			foreach (Creature gameObject in creatures)
 			{
 				//var obj = gameObject as Plant;
-				if (gameObject.GetType() == typeof(T))
+				if (gameObject is T)
 				{
 					long dist = (GetCenterX() - gameObject.GetCenterX()) * (GetCenterX() - gameObject.GetCenterX())
 						+ (GetCenterY() - gameObject.GetCenterY()) * (GetCenterY() - gameObject.GetCenterY());
@@ -211,7 +211,7 @@ namespace GameEngine
 				}
 			}
 		}
-		public void MoveToFood(ref ICollection<Creature> creatures)
+		public void MoveToFood(ICollection<Creature> creatures)
 		{
 			if ((GetCenterX() - Goal.GetCenterX()) * (GetCenterX() - Goal.GetCenterX())
 					+ (GetCenterY() - Goal.GetCenterY()) * (GetCenterY() - Goal.GetCenterY()) > 10)

@@ -21,7 +21,7 @@ namespace GameEngine
 			WantRelations = true;
 		}
 
-		public override void SearchFood(ref ICollection<Creature> gameObjects)
+		public override void SearchFood (ICollection<Creature> gameObjects)
 		{
 			long min;
 			if (Goal != null && gameObjects.Contains(Goal))
@@ -53,26 +53,26 @@ namespace GameEngine
 			}
 		}
 
-		public override void Update(ref ICollection<Creature> creatures, ref ICollection<MapObject> mapObjects)
+		public override void Update(ICollection<Creature> creatures, ICollection<MapObject> mapObjects)
 		{
 			Satiety -= 0.0005;
 			if (Satiety <= 0.9)
 			{
 				if (Satiety <= 0) Visible = false;
 				
-					SearchFood(ref creatures);
-					if (Goal != null) MoveToFood(ref creatures);
+					SearchFood(creatures);
+					if (Goal != null) MoveToFood(creatures);
 					else MoveRandom();
 			
 			}
 			else
 			{
 				if (Partner != null)
-					MoveToPartner(ref mapObjects);
+					MoveToPartner(mapObjects);
 				else
 				{
 				
-					if (WantRelations) SearchPartner(ref creatures);
+					if (WantRelations) SearchPartner(creatures);
 					MoveRandom();
 				}
 			}
@@ -80,12 +80,12 @@ namespace GameEngine
 			Move();
 		}
 
-		public void SearchPartner(ref ICollection<Creature> creatures)
+		public void SearchPartner(ICollection<Creature> creatures)
 		{
 			foreach (Creature creature in creatures)
 			{
-				if ((creature.GetType() == typeof(Woman) && GetType() == typeof(Man))
-					|| (creature.GetType() == typeof(Man) && GetType() == typeof(Woman)))
+				if ((creature is Woman && creature is Man)
+					|| (creature is Man && creature is Woman))
 				{
 					long dist = (GetCenterX() - creature.GetCenterX()) * (GetCenterX() - creature.GetCenterX())
 						+ (GetCenterY() - creature.GetCenterY()) * (GetCenterY() - creature.GetCenterY());
@@ -99,7 +99,7 @@ namespace GameEngine
 			}
 		}
 
-		public void MoveToPartner(ref ICollection<MapObject> mapObjects)
+		public void MoveToPartner(ICollection<MapObject> mapObjects)
 		{
 			Sprite goal;
 			if (Home != null) goal = Home;
@@ -146,7 +146,7 @@ namespace GameEngine
 				{
 					if (Home == null)
 					{
-						((Man)this).BuildHouse(ref mapObjects);
+						((Man)this).BuildHouse(mapObjects);
 					}
 					else
 					{
@@ -157,9 +157,9 @@ namespace GameEngine
 			}
 		}
 
-		public void Reproduction(ref ICollection<Creature> creatures)
+		public void Reproduction(ICollection<Creature> creatures)
 		{
-			if (Partner.GetType() == typeof(Woman) && GetType() == typeof(Man))
+			if (Partner is Woman && Partner is Man)
 			{
 				((Woman)Partner).GiveBirth();
 			}
@@ -182,5 +182,7 @@ namespace GameEngine
 
 			g.DrawString("Партнёр: " + haveParther, font, Brushes.White, GetCenterX(), Y - 16, sf);
 		}
+
+		
 	}
 }

@@ -13,7 +13,7 @@ namespace GameEngine
 		{
 		}
 
-		public abstract void Update(ref ICollection<Creature> creatures, ref ICollection<MapObject> mapObjects);
+		public abstract void Update(ICollection<Creature> creatures,ICollection<MapObject> mapObjects);
 	
 	}
 }

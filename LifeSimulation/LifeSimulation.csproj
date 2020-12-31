@@ -50,6 +50,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GameEngine\Animal.cs" />
+    <Compile Include="GameEngine\PH.cs" />
+    <Compile Include="GameEngine\Omnivores.cs" />
     <Compile Include="GameEngine\Creature.cs" />
     <Compile Include="GameEngine\GameEngine.cs" />
     <Compile Include="GameEngine\GameView.cs">
